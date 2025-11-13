@@ -121,7 +121,7 @@ def password_reset_request():
                        user=user, token=token)
             flash('An email with instructions to reset your password has been '
               'sent to you.')
-        flash('<p>To reset your password <a href="' + url_for('auth.password_reset', token=token, _external=True) + '">click here</a></p>')
+            flash('<p>To reset your password <a href="' + url_for('auth.password_reset', token=token, _external=True) + '">click here</a></p>')
         return redirect(url_for('auth.login'))
     return render_template('auth/reset_password.html', form=form)
 
