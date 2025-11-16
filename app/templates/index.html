@@ -2,8 +2,36 @@
 
 {% block title %}Flasky{% endblock %}
 
+<style>
+    .scroll {
+      overflow-y: auto;
+    }
+</style>
+
 {% block page_content %}
 <div class="page-header">
-    <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1>
+    <h1>Olá, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Desconhecido{% endif %}!</h1>
+</div>
+
+<div class='scroll'>
+    <h2>Relação de usuários cadastrados</h2>
+        <table class='table'>
+            <thead>
+                <tr>
+                    <th>Nome do usuário</th>
+                    <th>E-mail</th>
+                    <th>Confirmado?</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in usuarios %}
+                    <tr>
+                        <td>{{ i.username }}</td>
+                        <td>{{ i.email }}</td>
+                        <td>{{ i.confirmed }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 </div>
 {% endblock %}
