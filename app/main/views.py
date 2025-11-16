@@ -4,4 +4,5 @@ from app.models import User
 
 @main.route('/')
 def index():
-    return render_template('index.html', user=User)
+    usuarios = user.query.all()
+    return render_template('index.html', usuarios=usuarios, user=User)
