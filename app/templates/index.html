@@ -14,7 +14,7 @@
 </div>
 
 <div class='scroll'>
-    {% if usuarios %}
+    {% if current_user.is_authenticated %}
     <h2>Relação de usuários cadastrados</h2>
         <table class='table'>
             <thead>
